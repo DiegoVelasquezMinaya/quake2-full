@@ -35,6 +35,22 @@ void Weapon_Grenade (edict_t *ent);
 void Weapon_GrenadeLauncher (edict_t *ent);
 void Weapon_Railgun (edict_t *ent);
 void Weapon_BFG (edict_t *ent);
+//PAYDAY WEAPONS
+//SHOTGUNS
+void Weapon_Reinfeld880(edict_t* ent);
+void Weapon_Mosconi12Classic(edict_t* ent);
+void Weapon_FSA12(edict_t* ent);
+//SUBMACHINEGUNS
+void Weapon_ZIVCommando(edict_t* ent);
+void Weapon_SGCompact7(edict_t* ent);
+//SNIPER
+void Weapon_HET5RedFox(edict_t* ent);
+//PISTOLS
+void Weapon_Signature40(edict_t* ent);
+void Weapon_SPModel11(edict_t* ent);
+//ASSAULT RIFLES
+void Weapon_CAR4(edict_t* ent);
+void Weapon_KU59(edict_t* ent);
 
 gitem_armor_t jacketarmor_info	= { 25,  50, .30, .00, ARMOR_JACKET};
 gitem_armor_t combatarmor_info	= { 50, 100, .60, .30, ARMOR_COMBAT};
@@ -1312,16 +1328,16 @@ always owned, never in the world
 /*QUAKED weapon_shotgun (.3 .3 1) (-16 -16 -16) (16 16 16)
 */
 	{
-		"weapon_shotgun", 
+		"weapon_shotgun", //shotgun
 		Pickup_Weapon,
 		Use_Weapon,
 		Drop_Weapon,
-		Weapon_Shotgun,
+		Weapon_Reinfeld880,
 		"misc/w_pkup.wav",
 		"models/weapons/g_shotg/tris.md2", EF_ROTATE,
 		"models/weapons/v_shotg/tris.md2",
 /* icon */		"w_shotgun",
-/* pickup */	"Shotgun",
+/* pickup */	"Reinfeld 880",
 		0,
 		1,
 		"Shells",
@@ -1335,24 +1351,47 @@ always owned, never in the world
 /*QUAKED weapon_supershotgun (.3 .3 1) (-16 -16 -16) (16 16 16)
 */
 	{
-		"weapon_supershotgun", 
+		"weapon_shotgun", //shotgun
 		Pickup_Weapon,
 		Use_Weapon,
 		Drop_Weapon,
-		Weapon_SuperShotgun,
+		Weapon_Mosconi12Classic,
 		"misc/w_pkup.wav",
-		"models/weapons/g_shotg2/tris.md2", EF_ROTATE,
-		"models/weapons/v_shotg2/tris.md2",
-/* icon */		"w_sshotgun",
-/* pickup */	"Super Shotgun",
+		"models/weapons/g_shotg/tris.md2", EF_ROTATE,
+		"models/weapons/v_shotg/tris.md2",
+/* icon */		"w_shotgun",
+/* pickup */	"Mosconi 12 Classic",
 		0,
-		2,
+		1,
 		"Shells",
-		IT_WEAPON|IT_STAY_COOP,
-		WEAP_SUPERSHOTGUN,
+		IT_WEAPON | IT_STAY_COOP,
+		WEAP_SHOTGUN,
 		NULL,
 		0,
-/* precache */ "weapons/sshotf1b.wav"
+/* precache */ "weapons/shotgf1b.wav weapons/shotgr1b.wav"
+	},
+
+		/*QUAKED weapon_shotgun (.3 .3 1) (-16 -16 -16) (16 16 16)
+		*/
+	{
+		"weapon_shotgun", //shotgun
+		Pickup_Weapon,
+		Use_Weapon,
+		Drop_Weapon,
+		Weapon_FSA12,
+		"misc/w_pkup.wav",
+		"models/weapons/g_shotg/tris.md2", EF_ROTATE,
+		"models/weapons/v_shotg/tris.md2",
+/* icon */		"w_shotgun",
+/* pickup */	"FSA-12",
+		0,
+		1,
+		"Shells",
+		IT_WEAPON | IT_STAY_COOP,
+		WEAP_SHOTGUN,
+		NULL,
+		0,
+/* precache */ "weapons/shotgf1b.wav weapons/shotgr1b.wav"
 	},
 
 /*QUAKED weapon_machinegun (.3 .3 1) (-16 -16 -16) (16 16 16)
@@ -1362,12 +1401,12 @@ always owned, never in the world
 		Pickup_Weapon,
 		Use_Weapon,
 		Drop_Weapon,
-		Weapon_Machinegun,
+		Weapon_ZIVCommando,
 		"misc/w_pkup.wav",
 		"models/weapons/g_machn/tris.md2", EF_ROTATE,
 		"models/weapons/v_machn/tris.md2",
 /* icon */		"w_machinegun",
-/* pickup */	"Machinegun",
+/* pickup */	"ZIV Commando",
 		0,
 		1,
 		"Bullets",
@@ -1378,23 +1417,92 @@ always owned, never in the world
 /* precache */ "weapons/machgf1b.wav weapons/machgf2b.wav weapons/machgf3b.wav weapons/machgf4b.wav weapons/machgf5b.wav"
 	},
 
-/*QUAKED weapon_chaingun (.3 .3 1) (-16 -16 -16) (16 16 16)
+/*QUAKED weapon_machinegun (.3 .3 1) (-16 -16 -16) (16 16 16)
 */
 	{
-		"weapon_chaingun", 
+		"weapon_machinegun", 
 		Pickup_Weapon,
 		Use_Weapon,
 		Drop_Weapon,
-		Weapon_Chaingun,
+		Weapon_SGCompact7,
 		"misc/w_pkup.wav",
-		"models/weapons/g_chain/tris.md2", EF_ROTATE,
-		"models/weapons/v_chain/tris.md2",
-/* icon */		"w_chaingun",
-/* pickup */	"Chaingun",
+		"models/weapons/g_machn/tris.md2", EF_ROTATE,
+		"models/weapons/v_machn/tris.md2",
+/* icon */		"w_machinegun",
+/* pickup */	"SG Compact-7",
 		0,
 		1,
 		"Bullets",
 		IT_WEAPON|IT_STAY_COOP,
+		WEAP_MACHINEGUN,
+		NULL,
+		0,
+/* precache */ "weapons/machgf1b.wav weapons/machgf2b.wav weapons/machgf3b.wav weapons/machgf4b.wav weapons/machgf5b.wav"
+	},
+
+/*QUAKED weapon_machinegun (.3 .3 1) (-16 -16 -16) (16 16 16)
+*/
+	{
+		"weapon_machinegun",
+		Pickup_Weapon,
+		Use_Weapon,
+		Drop_Weapon,
+		Weapon_HET5RedFox,
+		"misc/w_pkup.wav",
+		"models/weapons/g_machn/tris.md2", EF_ROTATE,
+		"models/weapons/v_machn/tris.md2",
+/* icon */		"w_machinegun",
+/* pickup */	"HET-5 Red Fox",
+		0,
+		1,
+		"Bullets",
+		IT_WEAPON | IT_STAY_COOP,
+		WEAP_MACHINEGUN,
+		NULL,
+		0,
+/* precache */ "weapons/machgf1b.wav weapons/machgf2b.wav weapons/machgf3b.wav weapons/machgf4b.wav weapons/machgf5b.wav"
+	},
+
+/*QUAKED weapon_chaingun (.3 .3 1) (-16 -16 -16) (16 16 16)
+*/
+	{
+		"weapon_chaingun", //shotgun
+		Pickup_Weapon,
+		Use_Weapon,
+		Drop_Weapon,
+		Weapon_Signature40,
+		"misc/w_pkup.wav",
+		"models/weapons/g_chain/tris.md2", EF_ROTATE,
+		"models/weapons/v_chain/tris.md2",
+/* icon */		"w_chaingun",
+/* pickup */	"Signature 40",
+		0,
+		1,
+		"Cells",
+		IT_WEAPON|IT_STAY_COOP,
+		WEAP_CHAINGUN,
+		NULL,
+		0,
+/* precache */ "weapons/chngnu1a.wav weapons/chngnl1a.wav weapons/machgf3b.wav` weapons/chngnd1a.wav"
+	},
+
+/*QUAKED weapon_chaingun (.3 .3 1) (-16 -16 -16) (16 16 16)
+*/
+	{
+		"weapon_chaingun", //shotgun
+		Pickup_Weapon,
+		Use_Weapon,
+		Drop_Weapon,
+		Weapon_SPModel11,
+		"misc/w_pkup.wav",
+		"models/weapons/g_chain/tris.md2", EF_ROTATE,
+		"models/weapons/v_chain/tris.md2",
+/* icon */		"w_chaingun",
+/* pickup */	"SP Model 11",
+		0,
+		1,
+		"Cells",
+		IT_WEAPON | IT_STAY_COOP,
 		WEAP_CHAINGUN,
 		NULL,
 		0,
@@ -1431,15 +1539,15 @@ always owned, never in the world
 		Pickup_Weapon,
 		Use_Weapon,
 		Drop_Weapon,
-		Weapon_GrenadeLauncher,
+		Weapon_SGCompact7,
 		"misc/w_pkup.wav",
 		"models/weapons/g_launch/tris.md2", EF_ROTATE,
 		"models/weapons/v_launch/tris.md2",
-/* icon */		"w_glauncher",
-/* pickup */	"Grenade Launcher",
+/* icon */		"w_machinegun",
+/* pickup */	"SG Compact-7",
 		0,
 		1,
-		"Grenades",
+		"Bullets",
 		IT_WEAPON|IT_STAY_COOP,
 		WEAP_GRENADELAUNCHER,
 		NULL,
@@ -1477,16 +1585,39 @@ always owned, never in the world
 		Pickup_Weapon,
 		Use_Weapon,
 		Drop_Weapon,
-		Weapon_HyperBlaster,
+		Weapon_CAR4,
 		"misc/w_pkup.wav",
 		"models/weapons/g_hyperb/tris.md2", EF_ROTATE,
 		"models/weapons/v_hyperb/tris.md2",
 /* icon */		"w_hyperblaster",
-/* pickup */	"HyperBlaster",
+/* pickup */	"CAR-4",
 		0,
 		1,
-		"Cells",
+		"Slugs",
 		IT_WEAPON|IT_STAY_COOP,
+		WEAP_HYPERBLASTER,
+		NULL,
+		0,
+/* precache */ "weapons/hyprbu1a.wav weapons/hyprbl1a.wav weapons/hyprbf1a.wav weapons/hyprbd1a.wav misc/lasfly.wav"
+	},
+
+/*QUAKED weapon_hyperblaster (.3 .3 1) (-16 -16 -16) (16 16 16)
+*/
+	{
+		"weapon_hyperblaster",
+		Pickup_Weapon,
+		Use_Weapon,
+		Drop_Weapon,
+		Weapon_KU59,
+		"misc/w_pkup.wav",
+		"models/weapons/g_hyperb/tris.md2", EF_ROTATE,
+		"models/weapons/v_hyperb/tris.md2",
+/* icon */		"w_hyperblaster",
+/* pickup */	"KU-59",
+		0,
+		1,
+		"Slugs",
+		IT_WEAPON | IT_STAY_COOP,
 		WEAP_HYPERBLASTER,
 		NULL,
 		0,
