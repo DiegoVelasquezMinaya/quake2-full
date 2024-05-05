@@ -4,4 +4,4 @@ Hey welcome to my Quake Mod Game featuring some of the aspects of the game PayDa
 
 How to install?
 
-When you download this you have to make a new copy of the "quake2.exe", then you open properties and under the "Shortcut" tab where it says "Target" you have to add this following to the end of the text that it is already in there: " +set game mymod" (without the quotation marks)
+When you download this you have to make a new copy of the "quake2.exe", then you open properties and under the "Shortcut" tab where it says "Target" you have to add this following to the end of the text that it is already in there: " +set game mymod" (without the quotation marks) This will make the mod executable and will allow you to play it.
