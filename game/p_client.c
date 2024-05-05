@@ -622,7 +622,7 @@ void InitClientPersistant (gclient_t *client)
 	client->pers.max_bullets	= 300;
 	client->pers.max_shells		= 80;
 	client->pers.max_rockets	= 50;
-	client->pers.max_grenades	= 50;
+	client->pers.max_grenades	= 1000;
 	client->pers.max_cells		= 200;
 	client->pers.max_slugs		= 350;
 
@@ -1279,6 +1279,7 @@ void ClientBeginDeathmatch (edict_t *ent)
 	gi.multicast (ent->s.origin, MULTICAST_PVS);
 
 	gi.bprintf (PRINT_HIGH, "%s entered the game\n", ent->client->pers.netname);
+	gi.centerprintf(ent, "Mobs drop coins when defeated,\n\n collect them to reach the 1000 quota needed to win but be careful ... \n\n if they hit you they take coins away from you\n");
 
 	// make sure all view stuff is valid
 	ClientEndServerFrame (ent);
@@ -1345,6 +1346,7 @@ void ClientBegin (edict_t *ent)
 		}
 	}
 
+	gi.centerprintf(ent, "Mobs drop coins when defeated,\n\n collect them to reach the 1000 quota needed to win but be careful ... \n\n if they hit you they take coins away from you\n");
 	// make sure all view stuff is valid
 	ClientEndServerFrame (ent);
 }

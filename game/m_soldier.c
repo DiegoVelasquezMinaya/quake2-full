@@ -28,6 +28,10 @@ SOLDIER
 #include "g_local.h"
 #include "m_soldier.h"
 
+void SP_item_health(edict_t* self);
+void SP_item_health_small(edict_t* self);
+void SP_item_health_large(edict_t* self);
+void SP_item_health_mega(edict_t* self);
 
 static int	sound_idle;
 static int	sound_sight1;

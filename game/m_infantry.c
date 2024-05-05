@@ -30,6 +30,10 @@ INFANTRY
 
 void InfantryMachineGun (edict_t *self);
 
+void SP_item_health(edict_t* self);
+void SP_item_health_small(edict_t* self);
+void SP_item_health_large(edict_t* self);
+void SP_item_health_mega(edict_t* self);
 
 static int	sound_pain1;
 static int	sound_pain2;
@@ -386,6 +390,7 @@ mmove_t infantry_move_death3 = {FRAME_death301, FRAME_death309, infantry_frames_
 void infantry_die (edict_t *self, edict_t *inflictor, edict_t *attacker, int damage, vec3_t point)
 {
 	int		n;
+	int		i;
 
 // check for gib
 	if (self->health <= self->gib_health)
@@ -422,6 +427,15 @@ void infantry_die (edict_t *self, edict_t *inflictor, edict_t *attacker, int dam
 	{
 		self->monsterinfo.currentmove = &infantry_move_death3;
 		gi.sound (self, CHAN_VOICE, sound_die2, 1, ATTN_NORM, 0);
+	}
+
+	i = rand() % 101;
+	if (i < 65)
+	{
+	}
+	else if (i < 80)
+	{
+		SpawnItem("item_health_small", SP_item_health_small);
 	}
 }
 

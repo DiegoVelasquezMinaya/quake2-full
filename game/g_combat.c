@@ -91,6 +91,9 @@ Killed
 */
 void Killed (edict_t *targ, edict_t *inflictor, edict_t *attacker, int damage, vec3_t point)
 {
+	gitem_t* it;
+	edict_t* it_ent;
+
 	if (targ->health < -999)
 		targ->health = -999;
 
@@ -123,6 +126,11 @@ void Killed (edict_t *targ, edict_t *inflictor, edict_t *attacker, int damage, v
 	}
 
 	targ->die (targ, inflictor, attacker, damage, point);
+
+	it = FindItem("item_health_small");
+	it_ent = G_Spawn();
+	it_ent->classname = it->classname;
+	SpawnItem(it_ent, it);
 }
 
 
